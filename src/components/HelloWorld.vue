@@ -1,11 +1,17 @@
 <script setup>
 defineProps({
-  msg: String,
+  msg: {
+    type: String,
+    default: '',
+  },
 });
 </script>
 
 <template>
-  <button type="button" class="btn btn-primary">
+  <button
+    type="button"
+    class="btn btn-primary"
+  >
     {{ msg }}
   </button>
 </template>
