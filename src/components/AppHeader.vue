@@ -44,20 +44,20 @@
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
             <li class="nav-item">
-              <a
+              <RouterLink
                 class="nav-link active"
-                href="/"
+                :to="{ name: 'home' }"
               >
                 Home
-              </a>
+              </RouterLink>
             </li>
             <li class="nav-item">
-              <a
-                class="nav-link"
-                href="/about"
+              <RouterLink
+                class="nav-link active"
+                :to="{ name: 'about' }"
               >
                 About
-              </a>
+              </RouterLink>
             </li>
           </ul>
         </div>
