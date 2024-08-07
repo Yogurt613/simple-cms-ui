@@ -1,5 +1,17 @@
 <script setup>
+import { useRoute } from 'vue-router';
 
+const route = useRoute();
+const links = [
+  {
+    title: 'Home',
+    name: 'home',
+  },
+  {
+    title: 'About',
+    name: 'about',
+  },
+];
 </script>
 
 <template>
@@ -43,22 +55,24 @@
         </div>
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-            <li class="nav-item">
-              <RouterLink
-                class="nav-link active"
-                :to="{ name: 'home' }"
-              >
-                Home
-              </RouterLink>
-            </li>
-            <li class="nav-item">
-              <RouterLink
-                class="nav-link active"
-                :to="{ name: 'about' }"
-              >
-                About
-              </RouterLink>
-            </li>
+            <template
+              v-for="(link, i) in links"
+              :key="i"
+            >
+              <li class="nav-item">
+                <router-link
+                  class="nav-link"
+                  :class="{
+                    'active': link.name === route.name,
+                  }"
+                  :to="{
+                    name: link.name,
+                  }"
+                >
+                  {{ link.title }}
+                </router-link>
+              </li>
+            </template>
           </ul>
         </div>
       </div>
