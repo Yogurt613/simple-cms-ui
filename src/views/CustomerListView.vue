@@ -1,5 +1,8 @@
 <script setup>
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 
 const customers = ref([
   { id: 1, name: 'Alice' },
@@ -8,13 +11,7 @@ const customers = ref([
 ]);
 
 const createCustomer = () => {
-  const name = prompt('Enter customer name');
-  if (!name) return;
-  const customer = {
-    id: customers.value.length + 1,
-    name,
-  };
-  customers.value.push(customer);
+  router.push({ name: 'customer-create' });
 };
 
 const updateCustomer = (id) => {
