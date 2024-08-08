@@ -15,10 +15,7 @@ const createCustomer = () => {
 };
 
 const updateCustomer = (id) => {
-  const name = prompt('Enter customer name');
-  if (!name) return;
-  const customer = customers.value.find(customer => customer.id === id);
-  customer.name = name;
+  router.push({ name: 'customer-edit', params: { id } });
 };
 
 const deleteCustomer = (id) => {
