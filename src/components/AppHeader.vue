@@ -8,6 +8,10 @@ const links = [
     name: 'home',
   },
   {
+    title: 'Customers',
+    name: 'customer-list',
+  },
+  {
     title: 'About',
     name: 'about',
   },
