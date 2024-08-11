@@ -1,4 +1,5 @@
 <script setup>
+import CustomerForm from '@/components/CustomerForm.vue';
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
@@ -7,7 +8,7 @@ const updateCustomer = () => {
   // TODO
 };
 </script>
-
+  
 <template>
   <div class="d-flex justify-content-between align-items-end mb-3">
     <div class="fs-2">
@@ -30,19 +31,5 @@ const updateCustomer = () => {
       </button>
     </div>
   </div>
-  <form class="border p-3">
-    <div class="mb-3">
-      <label
-        for="name"
-        class="form-label"
-      >
-        Name
-      </label>
-      <input
-        id="name"
-        type="text"
-        class="form-control"
-      >
-    </div>
-  </form>
+  <CustomerForm />
 </template>
