@@ -1,14 +1,19 @@
 <script setup>
 import CustomerForm from '@/components/CustomerForm.vue';
+import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
+// 綁定表單引用
+const form = ref();
+
 const updateCustomer = () => {
   // TODO
+  console.log(form.value.validateForm());
 };
 </script>
-  
+
 <template>
   <div class="d-flex justify-content-between align-items-end mb-3">
     <div class="fs-2">
@@ -31,5 +36,5 @@ const updateCustomer = () => {
       </button>
     </div>
   </div>
-  <CustomerForm />
+  <CustomerForm ref="form" />
 </template>
