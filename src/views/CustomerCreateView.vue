@@ -8,9 +8,22 @@ const router = useRouter();
 // 綁定表單引用
 const form = ref();
 
-const createCustomer = () => {
-  // TODO
-  console.log(form.value.validateForm());
+const createCustomer = async () => {
+  if (!form.value.validateForm()) return;
+
+  try {
+    await fetch('http://localhost:3000/api/customers', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(form.value.formData),
+    });
+    router.push({ name: 'customer-list' });
+    // router.push('/customers');
+  } catch (err) {
+    console.error(err);
+  }
 };
 </script>
 

@@ -1,7 +1,12 @@
 <script setup>
 import { ref } from 'vue';
 
-// 綁定表單引用
+// 定義雙向綁定
+const formData = defineModel('formData', {
+  type: Object,
+  default: () => ({}),
+});
+
 const form = ref();
 
 // 驗證欄位
@@ -20,6 +25,7 @@ const validateForm = () => {
 // 暴露屬性
 defineExpose({
   validateForm,
+  formData,
 });
 </script>
 
@@ -37,6 +43,7 @@ defineExpose({
       </label>
       <input
         id="name"
+        v-model="formData.name"
         type="text"
         class="form-control"
         required
