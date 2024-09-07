@@ -1,4 +1,5 @@
 <script setup>
+import { customer } from '@/api';
 import CustomerForm from '@/components/CustomerForm.vue';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
@@ -12,13 +13,7 @@ const createCustomer = async () => {
   if (!form.value.validateForm()) return;
 
   try {
-    await fetch('http://localhost:3000/api/customers', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(form.value.formData),
-    });
+    await customer.create(form.value.formData);
     router.push({ name: 'customer-list' });
     // router.push('/customers');
   } catch (err) {
